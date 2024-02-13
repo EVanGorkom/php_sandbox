@@ -1,5 +1,10 @@
 <?php
 $output = null;
+
+$ids = [10, 22, 15, 45, 67];
+$users = ['user1', 'user2', 'user3'];
+
+$output = count($ids);
 ?>
 
 <!DOCTYPE html>
@@ -22,6 +27,11 @@ $output = null;
         <div class="bg-white rounded-lg shadow-md p-6 mt-6">
             <!-- Output -->
             <p class="text-xl"><?= $output ?></p>
+            <h2 class="text-xl font-semibold my-4">IDs Arr</h2>
+            <p>
+                <pre>
+                    <?php print_r($ids); ?>
+                </pre>
             </p>
         </div>
     </div>
