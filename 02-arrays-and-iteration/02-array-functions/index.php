@@ -36,7 +36,7 @@ $ids2 = array_slice($ids, 2, 3);
 // var_dump(($ids2))
 
 // array_splice
-array_splice($ids, 1, 1, "new id");
+array_splice($ids, 1, 1, 3);
 array_splice($users, 0, 1, "new user");
 
 // array_sum
@@ -52,7 +52,8 @@ $output = 'User 3 Exists: ' . in_array('user3', $users);
 $tags = 'tech,code,program';
 $tagsArr = explode(',', $tags);
 
-// 
+// implode
+$output = implode(', ', $users);
 
 ?>
 
