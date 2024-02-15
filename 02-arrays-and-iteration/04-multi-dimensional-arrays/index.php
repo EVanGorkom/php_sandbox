@@ -1,5 +1,51 @@
 <?php
 $output = null;
+
+$fruits = [
+  ['Apple', 'Red'],
+  ['Orange', 'Orange'],
+  ['Banana', 'Yellow']
+];
+
+$output = $fruits[0][0]; // retrieves the element 'Apple'
+
+$fruits[] = ['Grape', 'Purple']; // adds this array to the element within the parent array
+
+$users = [
+  [
+    'name' => 'John',
+    'email' => 'john@gmail.com',
+    'password' => '1234'
+  ],
+  [
+    'name' => 'Mary',
+    'email' => 'mary@gmail.com',
+    'password' => '1234'
+  ],
+  [
+    'name' => 'Alex',
+    'email' => 'alex@gmail.com',
+    'password' => '1234'
+  ],
+];
+
+$output = $users[1]['email']; // displays specific data from the hash
+$users[] = [      // again, just an example of adding a new element to the hash
+  'name' => 'Cheyenne',
+  'email' => 'cheyenne@gmail.com',
+  'password' => '1234'
+];
+
+array_push($users, ['name' => 'Alex', 'email' => 'alex@gmail.com', 'password' => '1234']);  // Another way to add a new element
+
+array_pop($users); // removes last element
+array_shift(($users)); // removes first element
+
+unset($users[0]); // removes specific user at index [0] in this case
+
+$output = count($users); // counts the number of elements in the parent array
+
+
 ?>
 
 <!DOCTYPE html>
@@ -22,6 +68,11 @@ $output = null;
     <div class="bg-white rounded-lg shadow-md p-6 mt-6">
       <!-- Output -->
       <p class="text-xl"><?= $output ?></p>
+      <p>
+      <pre>
+          <?php print_r($users) ?>
+        </pre>
+      </p>
     </div>
   </div>
 </body>
