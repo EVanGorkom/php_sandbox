@@ -1,5 +1,22 @@
 <?php
 $output = null;
+// Associative arrays are like hashes or dictionaries in ruby and python
+$user = [
+    'name' => 'John',
+    'email' => 'john@gmail.com',
+    'hobbies' => ['Tennis', 'Video Games']
+];
+
+// Practice accessing data within the associative array (hash)
+$output = $user['name'];
+$output = $user['email'];
+
+$output = $user['hobbies'][0];
+// $output = $user[2][0]; // This syntax does not work, but the one above does
+
+$user['address'] = '123 Main St'; // This will add a new element to the hash
+
+unset($user['address']); // This will remove the element 'address' from the hash
 ?>
 
 <!DOCTYPE html>
@@ -22,6 +39,12 @@ $output = null;
         <div class="bg-white rounded-lg shadow-md p-6 mt-6">
             <!-- Output -->
             <p class="text-xl"><?= $output ?></p>
+            <h2 class="text-xl font-semibold my-4">User Array:</h2>
+            <p>
+            <pre>
+                    <?php print_r($user) ?>
+                </pre>
+            </p>
         </div>
     </div>
 </body>
