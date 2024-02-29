@@ -15,6 +15,13 @@
 | >=       | Greater than or equal to |
 */
 
+$x = 10;
+$y = '10';
+
+var_dump($x == $y); // the result ends up being 'true'
+                    // we're only checking the value here, not the type.
+var_dump($x === $y); // the result ends up being 'false'
+                     // Here we're checking the value, AND the type.
 
 /*
 | Logical Operators
