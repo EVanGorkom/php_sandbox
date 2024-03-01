@@ -7,11 +7,11 @@ define('APP_VERSION', '1.0.0');
 // newer syntax, similar to JavaScript
 const DB_NAME = 'mydb';
 const DB_HOST = 'localhost';
-const LOVE = 'I Love Sarah a lot';
 
 function run()
 {
-  echo LOVE;
+  echo DB_NAME, DB_HOST;
+  echo APP_NAME;
 }
 run();
 
