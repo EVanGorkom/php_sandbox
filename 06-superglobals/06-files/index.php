@@ -1,11 +1,40 @@
 <?php
 $title = '';
 $description = '';
-$submitted = false; 
+$submitted = false;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
   $title = htmlspecialchars($_POST['title'] ?? '');
   $description = htmlspecialchars($_POST['description'] ?? '');
+
+  $file = $_FILES['logo'];
+
+  if ($file['error'] === UPLOAD_ERR_OK) {
+    $uploadDir = 'uploads/';
+
+    // Create directory
+    if (!is_dir($uplaodDir)) {
+      mkdir($uploadDir, 0755, true);
+    }
+
+    // Create file name
+    $filename = uniqid() . '-' . $file['name'];
+
+    // Check file type
+    $allowedExtensions = ['jpg', 'jpeg', 'png'];
+    $fileExtension = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+
+    if (in_array($fileExtension, $allowedExtensions)) {
+      // Upload file
+      if (move_uploaded_file($file['tmp_name'], $uploadDir . $filename)) {
+        echo 'File uploaded successfully!';
+      } else {
+        echo 'File upload error: ' . $file['error'];
+      }
+    } else {
+      echo 'Invalid File Type';
+    }
+  }
 
   $submitted = true;
 }
